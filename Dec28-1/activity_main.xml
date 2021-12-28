@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+<!--  2,3행 xml네임스페이스를 url로 지정
+    12,13 넓이와 높이
+    14button 이름지정= button1
+    15 버튼text설정 strings.xml에 strBtn1에 문자열이 없기때문에 오류발생-->
+    <Button
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/button1"
+        android:text="@string/strBtn1"
+        ></Button>
+
+
+</LinearLayout>
