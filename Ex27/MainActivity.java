@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
     RadioGroup Rg;
     RadioButton Rb1, Rb2;
     ImageView image1 ;
-//    final String address = text1.getText().toString();
 
 
     @Override
@@ -37,38 +36,47 @@ public class MainActivity extends AppCompatActivity {
         image1 = (ImageView) findViewById(R.id.image1);
 
 
-//        bt1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Toast.makeText(getApplicationContext(), address,
-//                        Toast.LENGTH_SHORT).show();
-//
-//            }
-//        });
-//
-//        bt2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent netlntent = new Intent(Intent.ACTION_VIEW,
-//                        Uri.parse(address));
-//                startActivity(netlntent);
-//
-//            }
-//        });
+        bt1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), text1.getText(),
+                        Toast.LENGTH_SHORT).show();
 
-        switch (Rg.getCheckedRadioButtonId()) {
-            case R.id.Rb1:
-                image1.setImageResource(R.drawable.image4);
-                break;
+            }
+        });
 
-            case R.id.Rb2:
-                image1.setImageResource(R.drawable.image1);
-                break;
+        bt2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent netlntent = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse(text1.getText().toString()));
+                startActivity(netlntent);
 
-            default:
-        }
+            }
+        });
+
+        Rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                switch (Rg.getCheckedRadioButtonId()) {
+                    case R.id.Rb1:
+                        image1.setImageResource(R.drawable.image4);
+                        break;
+
+                    case R.id.Rb2:
+                        image1.setImageResource(R.drawable.image1);
+                        break;
+
+                    default:
+                }
+
+            }
+        });
+
+
 
 
 
     }
 }
+
