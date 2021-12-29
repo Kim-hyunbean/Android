@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Ex2-7</string>
+    <string name="text1">에딧텍스트</string>
+    <string name="bt1">버튼1</string>
+    <string name="bt2">버튼2</string>
+    <string name="Rg">라디오그룹</string>
+    <string name="Rb1">오레오라디오버튼</string>
+    <string name="Rb2">파이라디오버튼</string>
+    <string name="image1">사진</string>
+
 </resources>
