@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ff0000"
+    android:padding="10dp"
+    >
+<!--    visibility=invisible=보이지만않을뿐 자리 유지
+                    gone 보이지도않고 자리도 없음-->
+<!--    padding 경계선과의 간격-->
+<!--match_parent 부모의 폭이나 넓이에 맞춘다-->
+<!--wrap_content 자기글자가 들어갈 정도만 맞춘다-->
+<!--  margin   글자간의 간격-->
+<!--    enable = 위젯의 동작여부 clickable=클릭의 여부-->
+<!--    rotation 위젯의 각도 변경-->
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="성별 선택"
+        />
+    <RadioButton
+        android:id="@+id/female"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="여성"
+        />
+    <RadioButton
+        android:id="@+id/male"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="남성"
+        android:enabled="false"
+        />
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="버튼입니다"
+        android:clickable="true"
+        android:rotation="45"
+        />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:hint="여기에 입력하세요"
+        ></EditText>
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="버튼입니다"
+        />
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="#00ff00"
+        android:text="버튼입니다"
+        />
+
+</LinearLayout>
