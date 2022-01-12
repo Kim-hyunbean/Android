@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <AutoCompleteTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/auto1"
+        android:completionHint="선택하세요"
+        android:hint="자동완성텍스트뷰"
+        />
+    <MultiAutoCompleteTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mul1"
+        android:completionThreshold="2"
+        android:hint="멀티자동완성텍스트뷰"
+        >
+
+    </MultiAutoCompleteTextView>
+<!--    최대 100 초기값 20 보조progress의 초기값을 50 style =프로그레스바의 모양결정-->
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="?android:progressBarStyleHorizontal"
+        android:max="100"
+        android:progress="20"
+        android:secondaryProgress="50">
+    </ProgressBar>
+<!--    프로그레스바의 하위호환-->
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:progress="20"></SeekBar>
+<!--defalut는 5개 초기값 1.5 한스텝크기 0.5-->
+    <RatingBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:rating="1.5"
+        android:stepSize="0.5"></RatingBar>
+
+</LinearLayout>
