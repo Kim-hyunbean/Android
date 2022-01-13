@@ -1,0 +1,39 @@
+package com.cookandroid.jer13;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ViewFlipper;
+
+public class MainActivity extends AppCompatActivity {
+
+    Button btn1, btn2;
+    //뷰 플리퍼 자바코딩이 필수다
+    ViewFlipper vflipper;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        btn1 = (Button) findViewById(R.id.btn1);
+        btn2 = (Button) findViewById(R.id.btn2);
+        vflipper = (ViewFlipper) findViewById(R.id.Flipper);
+
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                vflipper.startFlipping();
+                vflipper.setFlipInterval(10);
+            }
+        });
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                vflipper.stopFlipping();
+            }
+        });
+    }
+}
