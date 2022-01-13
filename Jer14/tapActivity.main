@@ -1,0 +1,35 @@
+package com.cookandroid.jer13_2;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.TabActivity;
+import android.os.Bundle;
+import android.widget.TabHost;
+
+@SuppressWarnings("deprecation")
+// 탭액티비티 사용시 나오는 경고를 막기 위한 코드
+// 반드시 탭 엑티비티를 상속받아야한다
+public class MainActivity extends TabActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        TabHost th = getTabHost();
+
+        TabHost.TabSpec Tabsong = th.newTabSpec("SONG").setIndicator("음악별");
+        Tabsong.setContent(R.id.tabSong);
+        th.addTab(Tabsong);
+
+        TabHost.TabSpec TabArtist = th.newTabSpec("Artist").setIndicator("가수별");
+        TabArtist.setContent(R.id.tabArtist);
+        th.addTab(TabArtist);
+
+        TabHost.TabSpec TabAlbum = th.newTabSpec("Album").setIndicator("앨범별");
+        TabAlbum.setContent(R.id.tabAlbum);
+        th.addTab(TabAlbum);
+
+        th.setCurrentTab(0);
+    }
+}
