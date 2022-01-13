@@ -1,0 +1,54 @@
+package com.cookandroid.jer13_4;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.Button;
+import android.widget.EditText;
+
+public class MainActivity extends AppCompatActivity {
+
+    EditText ed1;
+    Button bt1, bt2;
+    WebView wb;
+// 웹뷰 사용을 위해서는 퍼미션을 줘야함
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        ed1 = (EditText) findViewById(R.id.edtUrl);
+        bt1 = (Button) findViewById(R.id.btn1);
+        bt2 = (Button) findViewById(R.id.btnBack);
+        wb = (WebView) findViewById(R.id.web1);
+
+        wb.setWebViewClient(new CookWebViewClient());
+
+        WebSettings wbset = wb.getSettings();
+        wbset.setBuiltInZoomControls(true);
+
+        bt1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                wb.loadUrl(ed1.getText().toString());
+            }
+        });
+        bt2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                wb.goBack();
+            }
+        });
+    }
+    class CookWebViewClient extends WebViewClient{
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            return super.shouldOverrideUrlLoading(view, url);
+        }
+    }
+
+}
