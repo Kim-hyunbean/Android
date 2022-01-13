@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+             <TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:id="@android:id/tabhost"
+                 >
+                 <!--    탭호스트의 아이디는 tabhost로 -->
+                 <LinearLayout
+                     android:layout_width="match_parent"
+                     android:layout_height="match_parent"
+                     android:orientation="vertical"
+                     >
+
+
+                     <FrameLayout
+                         android:layout_width="match_parent"
+                         android:layout_height="match_parent"
+                         android:id="@android:id/tabcontent"
+                         android:layout_weight="1"
+                         >
+                         <LinearLayout
+                             android:layout_width="match_parent"
+                             android:layout_height="match_parent"
+                             android:orientation="horizontal"
+                             android:id="@+id/tabSong"
+                             android:background="#f00000"></LinearLayout>
+                         <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:orientation="horizontal"
+                 android:id="@+id/tabArtist"
+                 android:background="#f0f000"></LinearLayout>
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:id="@+id/tabAlbum"
+                 android:orientation="horizontal"
+                 android:background="#f000ff"></LinearLayout>
+         </FrameLayout>
+
+         <TabWidget
+             android:id="@android:id/tabs"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_weight="1">
+         </TabWidget>
+     </LinearLayout>
+
+
+</TabHost>
