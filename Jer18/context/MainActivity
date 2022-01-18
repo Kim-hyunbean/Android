@@ -1,0 +1,95 @@
+package com.example.jer18_1;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.graphics.Color;
+import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.Display;
+import android.view.Gravity;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+
+    LinearLayout baseLayout;
+    Button btn1 ,btn2, btn3;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        setTitle("컨텍스트로 배경바꾸기");
+        baseLayout = findViewById(R.id.baseLayout);
+        btn1 = findViewById(R.id.colorbutton);
+        //컨텍스트 설정
+        registerForContextMenu(btn1);
+        btn2 = findViewById(R.id.locatebutton);
+        registerForContextMenu(btn2);
+        btn3 = findViewById(R.id.Toastbutton);
+
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast tMsg = Toast.makeText(MainActivity.this,"토스트 연습",Toast.LENGTH_SHORT);
+
+                Display display = ((WindowManager) getSystemService(WINDOW_SERVICE)).getDefaultDisplay();
+                // 랜덤 위치 구하기
+                int xset = (int) (Math.random() * display.getWidth()); //화면폭
+                int yset = (int) (Math.random() * display.getHeight()); //화면 높이
+                tMsg.setGravity(Gravity.TOP | Gravity.LEFT, xset,yset);
+                tMsg.show();
+            }
+
+
+        });
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+
+        MenuInflater mInflater = getMenuInflater();
+        if (v==btn1) {
+            menu.setHeaderTitle("배경색 변경"); //메뉴 헤더 제목 설정
+            mInflater.inflate(R.menu.menu1, menu);
+        }
+
+        if (v==btn2) {
+            menu.setHeaderTitle("버튼 변경");
+            mInflater.inflate(R.menu.menu2, menu);
+        }
+    }
+
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.itemRed:
+                baseLayout.setBackgroundColor(Color.RED);
+                return true;
+            case R.id.itemGreen:
+                baseLayout.setBackgroundColor(Color.GREEN);
+                return true;
+            case R.id.itemBlue:
+                baseLayout.setBackgroundColor(Color.BLUE);
+                return true;
+            case R.id.Rotate:
+                btn2.setRotation(45);
+                return true;
+            case R.id.Size:
+                btn2.setScaleX(2);
+                btn2.setScaleY(2);
+                return true;
+
+        }
+        return false;
+    }
+}
