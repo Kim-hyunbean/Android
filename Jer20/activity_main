@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="10dp"
+    >
+
+    <Button
+        android:id="@+id/btnWrite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="내장 메모리에 파일 쓰기"
+        />
+
+    <Button
+        android:id="@+id/btnRead"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="내장 메모리에 파일 읽기기"
+       />
+
+    <DatePicker
+        android:id="@+id/datePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edtDiary"
+        android:background="#00ff00"
+        android:lines="3"
+        >
+    </EditText>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn3"
+        android:enabled="false"
+        android:text="버튼"
+        >
+    </Button>
+
+</LinearLayout>
