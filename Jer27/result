@@ -7,13 +7,31 @@
     >
     <TableRow>
         <TextView
+            android:id="@+id/resultTv"
+            android:layout_gravity="center"
+            android:text="그림1"
+            android:layout_span="2"
+            android:textSize="15dp"></TextView>
+    </TableRow>
+    <TableRow>
+        <ImageView
+            android:id="@+id/mostvote"
+            android:layout_gravity="center"
+            android:layout_span="2"
+            android:src="@drawable/test1"
+            android:layout_height="400dp"
+            ></ImageView>
+    </TableRow>
+
+    <TableRow>
+        <TextView
             android:id="@+id/tv1"
             android:layout_gravity="center_vertical"
             android:text="그림1"
             android:textSize="15dp"></TextView>
         <RatingBar
             android:id="@+id/rbar1"
-            style="?android:attr/ratingBarStyleIndicator"
+            style="?android:attr/ratingBarStyleSmall"
             android:layout_gravity="right"></RatingBar>
     </TableRow>
     <TableRow>
@@ -24,7 +42,7 @@
             android:textSize="15dp"></TextView>
         <RatingBar
             android:id="@+id/rbar2"
-            style="?android:attr/ratingBarStyleIndicator"
+            style="?android:attr/ratingBarStyleSmall"
             android:layout_gravity="right"></RatingBar>
     </TableRow>
     <TableRow>
@@ -35,7 +53,7 @@
             android:textSize="15dp"></TextView>
         <RatingBar
             android:id="@+id/rbar3"
-            style="?android:attr/ratingBarStyleIndicator"
+            style="?android:attr/ratingBarStyleSmall"
             android:layout_gravity="right"></RatingBar>
     </TableRow>
     <TableRow>
@@ -46,7 +64,7 @@
             android:textSize="15dp"></TextView>
         <RatingBar
             android:id="@+id/rbar4"
-            style="?android:attr/ratingBarStyleIndicator"
+            style="?android:attr/ratingBarStyleSmall"
             android:layout_gravity="right"></RatingBar>
     </TableRow>
     <TableRow>
@@ -57,7 +75,7 @@
             android:textSize="15dp"></TextView>
         <RatingBar
             android:id="@+id/rbar5"
-            style="?android:attr/ratingBarStyleIndicator"
+            style="?android:attr/ratingBarStyleSmall"
             android:layout_gravity="right"></RatingBar>
     </TableRow>
     <TableRow>
@@ -68,7 +86,7 @@
             android:textSize="15dp"></TextView>
         <RatingBar
             android:id="@+id/rbar6"
-            style="?android:attr/ratingBarStyleIndicator"
+            style="?android:attr/ratingBarStyleSmall"
             android:layout_gravity="right"></RatingBar>
     </TableRow>
     <TableRow>
@@ -79,7 +97,7 @@
             android:textSize="15dp"></TextView>
         <RatingBar
             android:id="@+id/rbar7"
-            style="?android:attr/ratingBarStyleIndicator"
+            style="?android:attr/ratingBarStyleSmall"
             android:layout_gravity="right"></RatingBar>
     </TableRow>
     <TableRow>
@@ -90,7 +108,7 @@
             android:textSize="15dp"></TextView>
         <RatingBar
             android:id="@+id/rbar8"
-            style="?android:attr/ratingBarStyleIndicator"
+            style="?android:attr/ratingBarStyleSmall"
             android:layout_gravity="right"></RatingBar>
     </TableRow>
     <TableRow>
@@ -101,7 +119,7 @@
             android:textSize="15dp"></TextView>
         <RatingBar
             android:id="@+id/rbar9"
-            style="?android:attr/ratingBarStyleIndicator"
+            style="?android:attr/ratingBarStyleSmall"
             android:layout_gravity="right"></RatingBar>
     </TableRow>
 
@@ -109,6 +127,7 @@
 
         <Button
             android:id="@+id/btnReturn"
+            android:layout_span="2"
             android:text="돌아가기"></Button>
     </TableRow>
 
