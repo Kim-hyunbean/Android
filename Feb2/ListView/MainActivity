@@ -1,0 +1,62 @@
+package com.example.feb2;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+
+public class MainActivity extends AppCompatActivity {
+
+//    String[] mid = {"오리지날", "삼각노랑이", "돼지", "부푸는주황색", "알낳는형주", "빠큐진구","ㅈㄴ큰친구"
+//                    ,"폭탄기영"};
+    ArrayList<String> mid = new ArrayList<String>();
+    EditText edtItem;
+    Button btn1;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        setTitle("리스트뷰 테스트");
+
+        ListView list = findViewById(R.id.ListView1);
+        edtItem = findViewById(R.id.ed1);
+        btn1 = findViewById(R.id.btn1);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1,mid);
+//        변수설정(string),리스트뷰형식simpleListitem1,적용할 배열 mid
+//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+//                android.R.layout.simple_list_item_multiple_choice,mid);
+        //멀티체크박스
+        list.setAdapter(adapter);
+
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mid.add(edtItem.getText().toString());
+                adapter.notifyDataSetChanged();
+//              갱신
+            }
+        });
+
+       list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+           @Override
+           public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+               mid.remove(i);
+               adapter.notifyDataSetChanged();
+               return false;
+           }
+       });
+
+   }
+}
