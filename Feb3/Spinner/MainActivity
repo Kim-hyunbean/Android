@@ -1,0 +1,28 @@
+package com.example.feb3_1;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        setTitle("스피너 테스트");
+
+        final String[] png = { "테스트1","테스트2","테스트3","테스트4","테스트5",
+                                "테스트6","테스트7","테스트8","테스트9","테스트10","테스트11"};
+
+        Spinner spinner = findViewById(R.id.spinner1);
+
+        ArrayAdapter<String> adapter;
+        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,
+                png);
+        spinner.setAdapter(adapter);
+    }
+}
