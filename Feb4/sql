@@ -1,0 +1,25 @@
+CREATE TABLE userTable ( id char(4), userName char(15), email char(15), birthYear int);
+        sqlite> INSERT INTO userTable VALUES('john', 'John Bann' , 'john@naver.com' , 1990);
+        sqlite> INSERT INTO userTable VALUES('kim', 'kim Chi' , 'kim@daum.net' ,1992);
+        sqlite> INSERT INTO userTable VALUES('lee', 'Lee Pal', 'lee@paran.com', 1988);
+        sqlite> INSERT INTO userTAble VALUES('park', 'Park Su', 'park@gmail.com', 1980);
+        sqlite> .header on
+        sqlite> .mode column
+        sqlite> SELECT * FROM userTable;
+        id          userName    email           birthYear
+        ----------  ----------  --------------  ----------
+        john        John Bann   john@naver.com  1990
+        kim         kim Chi     kim@daum.net    1992
+        lee         Lee Pal     lee@paran.com   1988
+        park        Park Su     park@gmail.com  1980
+        sqlite> SELECT id, birthYear FROM userTable WHERE birthYear <= 1990;
+        id          birthYear
+        ----------  ----------
+        john        1990
+        lee         1988
+        park        1980
+        sqlite> SELECT * FROM userTable WHERE id = 'park';
+        id          userName    email           birthYear
+        ----------  ----------  --------------  ----------
+        park        Park Su     park@gmail.com  1980
+        sqlite>
