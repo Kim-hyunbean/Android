@@ -94,21 +94,7 @@ public class MainActivity extends AppCompatActivity {
                     btnStop.setClickable(true);
                     tvMP3.setText("실행중인 음악 : " +selectMP3);
                     pbMP3.setVisibility(View.VISIBLE);
-
-                } catch (IOException e) {
-
-                }
-            }
-        });
-        btnStop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mPlayer.stop();
-                mPlayer.reset();
-                btnPlay.setClickable(true);
-                btnStop.setClickable(false);
-                tvMP3.setText("실행중인 음악 : " +selectMP3);
-                new Thread() {
+                    new Thread() {
                     SimpleDateFormat timeFormat = new SimpleDateFormat("mm:ss");
                     public void run() {
                         if (mPlayer == null) return;
@@ -125,6 +111,21 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 }.start();
+
+                } catch (IOException e) {
+
+                }
+            }
+        });
+        btnStop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mPlayer.stop();
+                mPlayer.reset();
+                btnPlay.setClickable(true);
+                btnStop.setClickable(false);
+                tvMP3.setText("실행중인 음악 : " +selectMP3);
+                
             }
         });
         btnStop.setClickable(false);
