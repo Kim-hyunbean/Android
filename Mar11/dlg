@@ -1,0 +1,28 @@
+final String[] SelectArray  = new String[] {"FAN001","FAN002","FAN003","FAN004"};
+
+ if (response.isSuccessful() && response.body() != null) {
+                                LoginDto loginDto = response.body();
+                                if (loginDto.getRows() != null) {
+
+                                    AlertDialog.Builder dlg = new AlertDialog.Builder(LoginActivity.this);
+                                    dlg.setTitle("원하는 환기팬을 선택해주세요");
+                                    dlg.setItems(SelectArray,
+                                            new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(DialogInterface dialogInterface, int i) {
+                                                    Log.d(TAG, Arrays.toString(loginDto.getRows().toArray()));
+                                                    Toast.makeText(getApplicationContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
+                                                    setPreference(AUTO_LOGIN_ID, id);
+                                                    PreferenceManager.setString(mContext, "id", editId.getText().toString()); //id라는 키값으로 저장
+                                                    PreferenceManager.setString(mContext, "pw", editPw.getText().toString()); //pw라는 키값으로 저장
+                                                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                                    startActivity(intent);
+                                                }
+                                            });
+                                    dlg.setPositiveButton("닫기",null);
+                                    dlg.show();
+                                } else {
+                                    Log.d(TAG, "존재하지 않는 회원입니다.");
+                                    Toast.makeText(getApplicationContext(), "존재하지 않는 회원입니다.", Toast.LENGTH_SHORT).show();
+                                }
+                            }
