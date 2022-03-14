@@ -1,0 +1,43 @@
+package com.example.vent.activity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.vent.R;
+
+public class SignUpActivity extends AppCompatActivity {
+
+    private EditText signName, signID, signPW, signPw2;
+    private Button signbtn;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_sign_up);
+
+        signName = findViewById(R.id.signName);
+        signID = findViewById(R.id.signID);
+        signPW = findViewById(R.id.signPW);
+        signPw2 = findViewById(R.id.signPW2);
+        signbtn = findViewById(R.id.signbtn);
+
+        signbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (signPW.getText().toString().equals(signPw2.getText().toString())) {
+                    Toast.makeText(getApplicationContext(), "회원가입이 완료되었습니다.", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent( SignUpActivity.this, LoginActivity.class );
+                    startActivity( intent );
+                }else{
+                    Toast.makeText(getApplicationContext(), "비밀번호가 다릅니다.", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+    }
+}
