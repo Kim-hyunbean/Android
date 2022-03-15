@@ -1,0 +1,14 @@
+package com.example.vent.api;
+
+import com.example.vent.dto.JoinData;
+import com.example.vent.dto.JoinResponse;
+
+import retrofit2.Call;
+import retrofit2.http.Body;
+import retrofit2.http.POST;
+
+public interface SignApi  {
+
+    @POST("memb_search.aspx")
+    Call<JoinResponse> userJoin(@Body JoinData data);
+}
