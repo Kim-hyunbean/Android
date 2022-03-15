@@ -1,0 +1,42 @@
+@Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        TextView FanId = findViewById(R.id.fanId);
+
+        switch (item.getItemId()) {
+            case R.id.menu1:
+                Intent wifiIntent = new Intent(getApplicationContext(), WiFiActivity.class);
+                startActivity(wifiIntent);
+                break;
+
+            case R.id.menu2:
+                removePreferenceString(LoginActivity.AUTO_LOGIN_ID);
+                Intent loginIntent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(loginIntent);
+                finish();
+                break;
+
+            case R.id.Fan1:
+                FanId.setText("Fan001");
+                FanNumber = 0;
+                break;
+
+            case R.id.Fan2:
+                FanId.setText("Fan002");
+                FanNumber = 1;
+                break;
+
+            case R.id.Fan3:
+                FanId.setText("Fan003");
+                FanNumber = 2;
+                break;
+
+            case R.id.Fan4:
+                FanId.setText("Fan004");
+                FanNumber = 3;
+                break;
+
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
