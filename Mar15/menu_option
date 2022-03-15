@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu1"
+        android:title="WiFi 설정"
+        app:showAsAction="never" />
+
+    <item android:title="환기팬 변경">
+        <menu>
+            <item
+                android:id="@+id/Fan1"
+                android:title="FAN001">
+            </item>
+            <item
+                android:id="@+id/Fan2"
+                android:title="FAN002">
+            </item>
+            <item
+                android:id="@+id/Fan3"
+                android:title="FAN003">
+            </item>
+            <item
+                android:id="@+id/Fan4"
+                android:title="FAN004">
+            </item>
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/menu2"
+        android:title="로그아웃"
+        app:showAsAction="never" />
+</menu>
