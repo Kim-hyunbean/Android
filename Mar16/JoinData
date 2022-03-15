@@ -1,0 +1,20 @@
+package com.example.vent.dto;
+
+import com.google.gson.annotations.SerializedName;
+
+public class JoinData {
+    @SerializedName("userEmail")
+    private String userEmail;
+
+    @SerializedName("userName")
+    private String userName;
+
+    @SerializedName("userPw")
+    private String userPw;
+
+    public JoinData(String userEmail, String userName, String userPw){
+        this.userEmail = userEmail;
+        this.userName = userName;
+        this.userPw = userPw;
+    }
+}
