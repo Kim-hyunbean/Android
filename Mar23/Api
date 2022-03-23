@@ -1,0 +1,23 @@
+package com.example.vent.api;
+
+import com.example.vent.dto.LoginDto;
+import com.example.vent.dto.SignDto;
+
+import retrofit2.Call;
+import retrofit2.http.Body;
+import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
+import retrofit2.http.Headers;
+import retrofit2.http.POST;
+import retrofit2.http.Query;
+
+public interface SignApi {
+
+    @GET("")
+    Call<SignDto> userSign(@Query(value = "s0", encoded = true) String s0, @Query(value = "s1", encoded = true) String s1,
+                           @Query(value = "s2", encoded = true) String s2, @Query("s3") String s3,
+                           @Query("s4") String s4, @Query(value = "s5",encoded = true) String s5,
+                           @Query("s6") String s6, @Query(value = "s7",encoded = true) String s7,
+                           @Query("u1") String u1);
+
+}
