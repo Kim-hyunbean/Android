@@ -1,0 +1,30 @@
+package com.example.vent.api;
+
+import com.example.vent.dto.LoginDto;
+import com.example.vent.dto.SignDto;
+
+import retrofit2.Call;
+import retrofit2.http.Body;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
+import retrofit2.http.Headers;
+import retrofit2.http.POST;
+import retrofit2.http.Query;
+import retrofit2.http.Url;
+
+public interface SignApi {
+
+//    @Headers("Content-Type: application/json; charset=utf-8")
+    @POST("memb_post.aspx")
+   // @GET("memb_post.aspx")
+    Call<SignDto> userSign(@Field(value = "s0", encoded = true) String s0, @Field(value = "s1", encoded = true) String s1,
+                           @Field(value = "s2", encoded = true) String s2, @Field("s3") String s3,
+                           @Field("s4") String s4, @Field(value = "s5",encoded = true) String s5,
+                           @Field("s6") String s6, @Field(value = "s7",encoded = true) String s7,
+                           @Field("u1") String u1);
+//
+//    @POST("memb_post.aspx")
+//    Call<SignDto> userSign(@Body SignDto signDto);
+
+}
