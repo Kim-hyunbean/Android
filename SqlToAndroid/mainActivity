@@ -1,0 +1,121 @@
+package ice.mp.project12_2;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+
+    EditText edtName, edtNumber, edtNameResult, edtNumberResult;
+    Button btnInit, btnInsert, btnSelect, btnDrop, btnRename;
+
+    SQLiteDatabase sqlDB;
+    DB db;
+    public static int VERSION=1;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        connectID();
+        db=new DB(this,VERSION);
+
+        //초기화 삭제후 새로만들기
+        btnInit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sqlDB = db.getWritableDatabase();
+                db.onUpgrade(sqlDB,1,2);
+                sqlDB.close();
+                viewGroup();
+            }
+        });
+
+        //삽입
+        btnInsert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sqlDB=db.getWritableDatabase();
+                String query01="INSERT INTO groupTBL VALUES ( '"+edtName.getText().toString() +
+                "', "+edtNumber.getText().toString()+ ");";
+                sqlDB.execSQL(query01);
+                sqlDB.close();
+                Toast.makeText(MainActivity.this, "입력성공", Toast.LENGTH_SHORT).show();
+                viewGroup();
+            }
+        });
+
+        //수정
+        btnRename.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sqlDB=db.getWritableDatabase();
+                String query02="UPDATE groupTBL SET gNumber = '" + Integer.parseInt(edtNumber.getText().toString()) +
+                        "' WHERE name = '" +  edtName.getText().toString() + "';";
+                sqlDB.execSQL(query02);
+                sqlDB.close();
+                Toast.makeText(MainActivity.this, "수정성공", Toast.LENGTH_SHORT).show();
+                viewGroup();
+            }
+        });
+
+        //삭제
+        btnDrop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sqlDB=db.getWritableDatabase();
+                String query03="DELETE FROM groupTBL WHERE name = '" + edtName.getText().toString() + "';";
+                sqlDB.execSQL(query03);
+                sqlDB.close();
+                Toast.makeText(MainActivity.this, "삭제성공", Toast.LENGTH_SHORT).show();
+                viewGroup();
+            }
+        });
+
+        //조회
+        btnSelect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                viewGroup();
+            }
+        });
+    }
+
+    private void viewGroup() {
+        sqlDB = db.getReadableDatabase();
+        Cursor cursor;
+        cursor = sqlDB.rawQuery("SELECT * FROM groupTBL;", null);
+
+        String strNames = "그룹이름" + "\r\n" + "‐‐‐‐‐‐‐‐" +"\r\n";
+        String strNumbers = "인원" + "\r\n" + "‐‐‐‐‐‐‐‐" +"\r\n";
+
+        while (cursor.moveToNext()) {
+            strNames += cursor.getString(0) + "\r\n";
+            strNumbers += cursor.getString(1) + "\r\n";
+        }
+
+        edtNameResult.setText(strNames);
+        edtNumberResult.setText(strNumbers);
+
+        cursor.close();
+        sqlDB.close();
+    }
+
+    private void connectID() {
+        edtName = findViewById(R.id.edtName);
+        edtNumber = findViewById(R.id.edtNumber);
+        edtNameResult = findViewById(R.id.edtNameResult);
+        edtNumberResult = findViewById(R.id.edtNumberResult);
+        btnInit = findViewById(R.id.btnInit);
+        btnInsert = findViewById(R.id.btnInsert);
+        btnSelect = findViewById(R.id.btnSelect);
+        btnDrop = findViewById(R.id.btnDrop);
+        btnRename = findViewById(R.id.btnRename);
+    }
+}
